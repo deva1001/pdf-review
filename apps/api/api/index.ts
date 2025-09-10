@@ -17,11 +17,7 @@ const app = express()
 // Middleware
 app.use(helmet())
 app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'https://pdf-review-web.vercel.app',
-    'https://pdf-review-web-git-master-deva1001.vercel.app'
-  ],
+  origin: true,
   credentials: true
 }))
 app.use(morgan('combined'))

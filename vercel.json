@@ -1,28 +1,19 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
   "builds": [
     {
       "src": "apps/web/package.json",
-      "use": "@vercel/next",
-      "config": {
-        "buildCommand": "cd apps/web && npm run build",
-        "outputDirectory": "apps/web/.next"
-      }
+      "use": "@vercel/next"
     },
     {
-      "src": "apps/api/package.json",
-      "use": "@vercel/node",
-      "config": {
-        "buildCommand": "cd apps/api && npm run build"
-      }
+      "src": "apps/api/api/index.ts",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "apps/api/dist/index.js"
+      "dest": "apps/api/api/index.ts"
     },
     {
       "src": "/(.*)",

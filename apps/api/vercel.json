@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "buildCommand": "cd ../.. && npm install && cd apps/api && npm run build",
+  "installCommand": "cd ../.. && npm install",
   "builds": [
     {
       "src": "dist/index.js",

@@ -21,7 +21,7 @@ export default function InvoicesPage() {
   const fetchInvoices = async (page = 1, query = '') => {
     setIsLoading(true)
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api'
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://pdf-review-api.vercel.app/api'
       const params = new URLSearchParams({
         page: page.toString(),
         limit: '10',
@@ -52,7 +52,7 @@ export default function InvoicesPage() {
     if (!confirm('Are you sure you want to delete this invoice?')) return
     
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api'
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://pdf-review-api.vercel.app/api'
       const response = await fetch(`${apiUrl}/invoices/${fileId}`, {
         method: 'DELETE',
       })

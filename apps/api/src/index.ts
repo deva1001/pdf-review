@@ -17,7 +17,14 @@ const PORT = process.env.PORT || 3001
 
 // Middleware
 app.use(helmet())
-app.use(cors())
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://pdf-review-web.vercel.app',
+    'https://pdf-review-web-git-master-deva1001.vercel.app'
+  ],
+  credentials: true
+}))
 app.use(morgan('combined'))
 app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true, limit: '50mb' }))
@@ -43,6 +50,16 @@ app.use('/api/upload', uploadRoutes)
 app.use('/api/extract', extractRoutes)
 app.use('/api/invoices', invoiceRoutes)
 app.use('/api/files', fileRoutes)
+
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'PDF Review Dashboard API',
+    status: 'OK',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  })
+})
 
 // Health check
 app.get('/api/health', (req, res) => {

@@ -41,7 +41,7 @@ export function InvoiceDetailModal({
 
     setIsSaving(true)
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api'
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://pdf-review-api.vercel.app/api'
       const response = await fetch(`${apiUrl}/invoices/${editingInvoice.fileId}`, {
         method: 'PUT',
         headers: {
@@ -68,7 +68,7 @@ export function InvoiceDetailModal({
     if (!confirm('Are you sure you want to delete this invoice?')) return
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api'
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://pdf-review-api.vercel.app/api'
       const response = await fetch(`${apiUrl}/invoices/${editingInvoice.fileId}`, {
         method: 'DELETE',
       })

@@ -51,7 +51,7 @@ export function DataExtractionForm({
       const formData = new FormData()
       formData.append('file', file)
       
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api'
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://pdf-review-api.vercel.app/api'
       const uploadResponse = await fetch(`${apiUrl}/upload`, {
         method: 'POST',
         body: formData,
@@ -106,7 +106,7 @@ export function DataExtractionForm({
 
     setIsSaving(true)
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api'
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://pdf-review-api.vercel.app/api'
       const response = await fetch(`${apiUrl}/invoices`, {
         method: 'POST',
         headers: {
@@ -142,7 +142,7 @@ export function DataExtractionForm({
     if (!editingData?.fileId) return
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api'
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://pdf-review-api.vercel.app/api'
       const response = await fetch(`${apiUrl}/invoices/${editingData.fileId}`, {
         method: 'DELETE',
       })

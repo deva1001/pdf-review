@@ -6,8 +6,8 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "type-check": "turbo run type-check",
-    "build:web": "cd apps/web && npm run build",
-    "build:api": "cd apps/api && npm run build"
+    "build:web": "cd apps/web && npm install && npm run build",
+    "build:api": "cd apps/api && npm install && npm run build"
   },
   "devDependencies": {
     "turbo": "^1.10.12"

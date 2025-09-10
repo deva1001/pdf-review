@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "npm run build:api",
+  "buildCommand": "cd apps/api && npm run build",
   "installCommand": "npm install",
   "builds": [
     {
